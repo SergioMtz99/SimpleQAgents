@@ -1,1 +1,1 @@
-# Simple Deep Q Agents for gymnasium environments using tensorflow
+# Simple Deep Q Agents for OpenAI Gymnasium Environments Using Tensorflow
