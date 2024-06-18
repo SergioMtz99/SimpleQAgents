@@ -17,6 +17,6 @@ classifiers = [
 	"Operating System :: OS Independent"
 ]
 dependencies = [
-	"tensorflow",
-	"numpy"
+	"tensorflow>=2.16.1",
+	"numpy>=1.26.3"
 ]
