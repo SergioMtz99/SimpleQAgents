@@ -2,7 +2,7 @@ import os
 from tensorflow.keras.models import Model
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.losses import MeanSquaredError
-from networks import LinearNetwork, ConvNetwork
+from SimpleQAgent.networks.networks import LinearNetwork, ConvNetwork
 
 class DeepQNetwork(Model):
     def __init__(self, net_type, lr, n_actions, name, 
