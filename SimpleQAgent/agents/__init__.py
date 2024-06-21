@@ -1,1 +1,1 @@
-from SimpleQAgent.agents.q_agent import DeepQNetwork
+from SimpleQAgent.agents.q_agent import DQNAgent, DDQNAgent, DuelingDQNAgent, D3QNAgent
