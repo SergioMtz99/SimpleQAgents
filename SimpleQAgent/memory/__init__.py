@@ -1,1 +1,1 @@
-from SimpleQAgent.memory.replay_memory import *
+from SimpleQAgent.memory.replay_memory import ReplayMemory
