@@ -1,4 +1,5 @@
 import tensorflow as tf
+import os
 import numpy as np
 from SimpleQAgent.networks.deep_q_network import DeepQNetwork, DuelingDQNetwork
 from SimpleQAgent.agents.base_agent import BaseAgent
