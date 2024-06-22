@@ -1,6 +1,5 @@
 import numpy as np
 import tensorflow as tf
-from SimpleQAgent.memory import ReplayMemory
 
 class BaseAgent():
     def __init__(self):
@@ -12,8 +11,6 @@ class BaseAgent():
         self.eps_decay = 0
         self.dueling = False
         self.mem_size = 50000
-
-        self.memory = ReplayMemory(mem_size = self.mem_size)
 
     def choose_action(self, observation):
         if np.random.random() < self.epsilon:
