@@ -270,7 +270,7 @@ class DuelingDQNAgent():
         else:
             state = tf.convert_to_tensor([observation], dtype = tf.float32)
             advantage, value = self.q_main(state)
-            action = tf.argmax(advantage).numpy()
+            action = tf.argmax(advantage[0]).numpy()
 
         return action
 
@@ -380,7 +380,7 @@ class D3QNAgent():
         else:
             state = tf.convert_to_tensor([observation], dtype = tf.float32)
             advantage, value = self.q_main(state)
-            action = tf.argmax(advantage).numpy()
+            action = tf.argmax(advantage[0]).numpy()
 
         return action
 
