@@ -1,6 +1,8 @@
 import tensorflow as tf
+import numpy as np
 from SimpleQAgent.networks.deep_q_network import DeepQNetwork, DuelingDQNetwork
 from SimpleQAgent.agents.base_agent import BaseAgent
+from SimpleQAgent.memory.replay_memory import ReplayMemory
 
 class DQNAgent(BaseAgent):
     def __init__(self, gamma, epsilon, lr, n_actions, mem_size, batch_size, 
