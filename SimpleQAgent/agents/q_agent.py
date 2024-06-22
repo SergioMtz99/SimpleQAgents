@@ -23,6 +23,8 @@ class DQNAgent(BaseAgent):
         self.ckpt_dir = ckpt_dir
         self.net_type = net_type
         self.action_space = [i for i in range(self.n_actions)]
+        
+        self.memory = ReplayMemory(mem_size = mem_size)
 
         if not os.path.exists(self.ckpt_dir):
             os.makedirs(self.ckpt_dir)
@@ -88,6 +90,8 @@ class DDQNAgent(BaseAgent):
         self.ckpt_dir = ckpt_dir
         self.net_type = net_type
         self.action_space = [i for i in range(self.n_actions)]
+        
+        self.memory = ReplayMemory(mem_size = mem_size)
 
         if not os.path.exists(self.ckpt_dir):
             os.makedirs(self.ckpt_dir)
@@ -159,6 +163,8 @@ class DuelingDQNAgent(BaseAgent):
         self.dueling = True
         self.action_space = [i for i in range(self.n_actions)]
 
+        self.memory = ReplayMemory(mem_size = mem_size)
+
         if not os.path.exists(self.ckpt_dir):
             os.makedirs(self.ckpt_dir)
             
@@ -224,6 +230,8 @@ class D3QNAgent(BaseAgent):
         self.net_type = net_type
         self.dueling = True
         self.action_space = [i for i in range(self.n_actions)]
+
+        self.memory = ReplayMemory(mem_size = self.mem_size)
 
         if not os.path.exists(self.ckpt_dir):
             os.makedirs(self.ckpt_dir)
