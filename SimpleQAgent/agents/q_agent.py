@@ -231,7 +231,7 @@ class D3QNAgent(BaseAgent):
         self.dueling = True
         self.action_space = [i for i in range(self.n_actions)]
 
-        self.memory = ReplayMemory(mem_size = self.mem_size)
+        self.memory = ReplayMemory(mem_size = mem_size)
 
         if not os.path.exists(self.ckpt_dir):
             os.makedirs(self.ckpt_dir)
