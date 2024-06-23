@@ -3,6 +3,7 @@ import numpy as np
 
 class BaseAgent():
     def __init__(self):
+        pass
 
     def choose_action(self, observation):
         if np.random.random() < self.epsilon:
