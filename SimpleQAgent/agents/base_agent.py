@@ -1,16 +1,8 @@
-import numpy as np
 import tensorflow as tf
+import numpy as np
 
 class BaseAgent():
     def __init__(self):
-        self.batch_size = 0
-        self.lear_step_counter = 0
-        self.replace_target_cnt = 0
-        self.epsilon = 0
-        self.eps_min = 0
-        self.eps_decay = 0
-        self.dueling = False
-        self.mem_size = 50000
 
     def choose_action(self, observation):
         if np.random.random() < self.epsilon:
@@ -59,4 +51,3 @@ class BaseAgent():
     def load_models(self):
         self.q_main.load_checkpoint()
         self.q_target.load_checkpoint()
-

@@ -1,9 +1,9 @@
 import tensorflow as tf
-import os
-import numpy as np
-from SimpleQAgent.networks.deep_q_network import DeepQNetwork, DuelingDQNetwork
+from SimpleQAgent.networks.dqn import DeepQNetwork, DuelingDQNetwork
 from SimpleQAgent.agents.base_agent import BaseAgent
 from SimpleQAgent.memory.replay_memory import ReplayMemory
+import numpy as np
+import os
 
 class DQNAgent(BaseAgent):
     def __init__(self, gamma, epsilon, lr, n_actions, mem_size, batch_size, 
@@ -38,8 +38,7 @@ class DQNAgent(BaseAgent):
 
         self.q_target = DeepQNetwork(net_type = self.net_type, lr = self.lr,
                                      n_actions = self.n_actions,
-                                     name = self.env_name + "_" + self.algo + "_dq_target",
-                                     ckpt_dir = self.ckpt_dir)
+                                     name = self.env_name + "_" + self.algo + "_dq_targe",                                     ckpt_dir = self.ckpt_dir)
 
     def learn(self):
         for i in range(3):
