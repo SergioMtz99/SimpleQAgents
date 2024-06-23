@@ -1,11 +1,10 @@
 import os
 import tensorflow as tf
-from tensorflow.keras.layers import Dense
-from tensorflow.keras.models import Model
+from tensorflow.keras.models import Model, Sequential
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.losses import MeanSquaredError
-from SimpleQAgent.networks.networks import LinearNetwork, ConvNetwork
-from SimpleQAgent.networks.networks import DuelingConvNetwork, DuelingLinearNetwork
+from SimpleQAgent.networks.base import LinearBase, ConvBase
+from SimpleQAgent.networks.head import QHead, DuelingHead
 
 class DeepQNetwork(Model):
     def __init__(self, net_type, lr, n_actions, name, 
@@ -18,9 +17,13 @@ class DeepQNetwork(Model):
         self.checkpoint_file = os.path.join(self.checkpoint_dir, name)
         
         if self.net_type == "linear":
-            self.network = LinearNetwork(self.n_actions)
+            self.network = Sequential([
+                LinearBase(),
+                QHead(n_actions = self.n_actions)])
         else:
-            self.network = ConvNetwork(self.n_actions)
+            self.network = Sequential([
+                ConvBase(),
+                QHead(n_actions = self.n_actions)])
         
         self.optimizer = Adam(learning_rate = self.lr)
         self.loss = MeanSquaredError()
@@ -50,9 +53,13 @@ class DuelingDQNetwork(Model):
         self.checkpoint_file = os.path.join(self.checkpoint_dir, name)
         
         if self.net_type == "linear":
-            self.network = DuelingLinearNetwork(self.n_actions)
+            self.network = Sequential([
+                LinearBase(),
+                DuelingHead(n_actions = self.n_actions)])
         else:
-            self.network = DuelingConvNetwork(self.n_actions)
+            self.network = Sequential([
+                ConvBase(),
+                DuelingHead(n_actions = self.n_actions)])
         
         self.optimizer = Adam(learning_rate = self.lr)
         self.loss = MeanSquaredError()
